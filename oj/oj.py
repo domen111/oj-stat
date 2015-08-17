@@ -1,5 +1,10 @@
+from importlib import import_module
+
 ojlist = {"tioj"}
 
-oj = {}
+oj_class = {}
 for i in ojlist:
-	oj[i] = __import__(i).oj
+	oj_class[i] = import_module("oj."+i)
+
+def oj(ojname):
+	return oj_class[ojname.lower()]

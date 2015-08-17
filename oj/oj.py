@@ -10,4 +10,6 @@ def oj(ojname):
 	return oj_class[ojname.lower()]
 
 def fetch_user(judge,user):
-	return set(oj(judge).fetch_user(user))
+	ac = oj(judge).fetch_user(user)
+	ac = map(lambda pid:(judge,pid),ac)
+	return set(ac)

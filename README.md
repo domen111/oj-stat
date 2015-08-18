@@ -4,7 +4,7 @@ fetch online judge statistics for various OJs
 
 Required
 -------------
-python3
+python3  
 module `requests` (https://github.com/kennethreitz/requests/)
 
 Features

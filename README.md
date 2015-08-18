@@ -5,6 +5,7 @@ fetch online judge statistics for various OJs
 Required
 -------------
 python3
+module `requests` (https://github.com/kennethreitz/requests/)
 
 Features
 -------------
@@ -22,3 +23,4 @@ Supported OJ
 | OJ id | OJ full name            | Link                      | User name/id                       |
 |-------|-------------------------|---------------------------|------------------------------------|
 | tioj  | TIOJ Infor Online Judge | http://tioj.ck.tp.edu.tw/ | Your login username (not nickname) |
+| toj   | TNFSH Online Judge      | http://toj.tfcis.org/oj/  | User ID (a number, goto [Challenges](http://toj.tfcis.org/oj/chal/) and find "Your ID") |

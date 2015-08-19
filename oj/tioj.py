@@ -1,9 +1,8 @@
-import urllib.request
+import requests
 import re
 
 def fetch_user(uname):
-	with urllib.request.urlopen("http://tioj.ck.tp.edu.tw/users/"+uname) as response:
-		html = response.read().decode("utf-8")
+	html = requests.get("http://tioj.ck.tp.edu.tw/users/"+uname).text
 
 	html = html.split("<tbody>",1)[1].split("</tbody>")[0]
 	html = html.replace("<tr>","").replace("</tr>","")

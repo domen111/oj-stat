@@ -1,6 +1,6 @@
 from importlib import import_module
 
-ojlist = {"tioj","toj"}
+ojlist = {"tioj","toj","hoj"}
 
 oj_class = {}
 for i in ojlist:

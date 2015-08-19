@@ -2,11 +2,16 @@ import requests
 import re
 
 def fetch_user(uid):
-	html = requests.get("http://hoj.twbbs.org/judge/user/view/"+uid).text
+	#login HOJ
+	login_data = {"username":"SkyOJ-BOT", "password":"1234"}
+	cookies = requests.post("http://hoj.twbbs.org/judge/user/login", data=login_data).cookies
 
+	#fetch data
+	html = requests.get("http://hoj.twbbs.org/judge/user/view/"+uid, cookies=cookies).text
+
+	#process
 	html = html.split("<th>Problems</th>",1)[1].split("<td>",1)[1].split("</td>")[0]
 	html = html.replace("<br>","\n").replace("&nbsp;&nbsp;&nbsp;","\n")
-	print(html,file=open("test.html",'w'))
 
 	for line in html.split("\n"):
 		if line == "": continue

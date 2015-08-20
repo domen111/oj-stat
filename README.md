@@ -25,3 +25,4 @@ Supported OJ
 | tioj  | TIOJ Infor Online Judge | http://tioj.ck.tp.edu.tw/   | Your login username (not nickname) |
 | toj   | TNFSH Online Judge      | http://toj.tfcis.org/oj/    | User ID (a number, goto [Challenges](http://toj.tfcis.org/oj/chal/) and find "Your ID") |
 | HOJ   | HSNU Online Judge       | http://hoj.twbbs.org/judge/ | User ID (a number, see the url of [your information page](http://hoj.twbbs.org/judge/user/view/146)) |
+| cf    | Codeforces              | https://codeforces.com/     | Your codeforces handle (username)  |

@@ -6,15 +6,6 @@ def fetch_user(uname):
 	data = json.loads(html)
 	for i in data["result"]:
 		if i["verdict"] == "OK" :
-			l = str()
-			if i["problem"]["contestId"] < 10:
-				l = "     " + str(i["problem"]["contestId"])
-			elif i["problem"]["contestId"] < 100:
-				l = "    " + str(i["problem"]["contestId"])
-			elif i["problem"]["contestId"] < 1000:
-				l = "   " + str(i["problem"]["contestId"])
-			else:
-				l = "" + str(i["problem"]["contestId"])
-			yield str(l) + str(i["problem"]["index"])
+			yield str(i["problem"]["contestId"]) + str(i["problem"]["index"])
 	
 # by visitorIKC 15.08.18

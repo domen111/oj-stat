@@ -1,5 +1,5 @@
 import sys
-from oj import oj
+from core.oj import oj
 
 def _fetch(judge_user):
 	judge,user = judge_user.split(":",1)

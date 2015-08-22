@@ -11,9 +11,32 @@
 	</div>
 </form>
 
+<br><br>
+
+<div id="loading" class="progress progress-striped active" style="display: none;">
+	<div class="progress-bar" style="width: 100%">Loading...</div>
+</div>
+<div class="bs-component" style="line-height: 24px;" id="result">
+</div>
+
 <script type="text/javascript">
 function load(){
-	alert($("#expression").val());
+	$("#loading").show();
+	$("#result").hide();
+	$.getJSON( "comparer/"+encodeURI($("#expression").val()), function(data) {
+		$("#loading").hide();
+		$("#result").show();
+		var html = "";
+		for(var i in data){
+			var prob = data[i];
+			html += '<span class="label label-default">';
+			if(data[i].url) html += "<a href='" + prob.url + "'>";
+			html += prob.judge + " " + prob.pname;
+			if(data[i].url) html += "</a>";
+			html += '</span>\n';
+		}
+		$("#result").html(html);
+	});
 }
 </script>
 

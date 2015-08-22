@@ -13,7 +13,7 @@ def comparer():
 	return render_template("comparer.html")
 
 @app.route("/comparer/<expression>")
-def comparer_api(expression=None):
+def comparer_api(expression):
 	result = list(compare(expression))
 	result.sort()
 	process = lambda prob: {"judge":prob[0], "pname":str(prob[1]), "url":get_url(prob)}
@@ -22,4 +22,4 @@ def comparer_api(expression=None):
 
 if __name__ == "__main__":
 	app.debug = True
-	app.run()
+	app.run(host="0.0.0.0")

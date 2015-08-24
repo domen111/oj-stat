@@ -29,8 +29,9 @@ function load(){
 		var html = "";
 		for(var i in data){
 			var prob = data[i];
-			html += '<span class="label label-default">';
-			if(data[i].url) html += "<a href='" + prob.url + "'>";
+			if(data[i].url) html += '<span class="label label-warning">';
+			else html += '<span class="label label-default">';
+			if(data[i].url) html += "<a href='" + prob.url + "' target='_blank'>";
 			html += prob.judge + " " + prob.pname;
 			if(data[i].url) html += "</a>";
 			html += '</span>\n';

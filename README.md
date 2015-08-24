@@ -5,7 +5,14 @@ fetch online judge statistics for various OJs
 Required
 -------------
 python3  
-module `requests` (https://github.com/kennethreitz/requests/)
+module `requests` (https://github.com/kennethreitz/requests/)  
+module `flask`  
+
+Run Web Server
+-------------
+1. Make sure you've installed python3
+2. install required modules: `pip install requests` `pip install flask` 
+3. Run `web.py`: `python3 web.py`
 
 Features
 -------------
@@ -16,7 +23,7 @@ For detailed description see http://uhunt.felix-halim.net/id/303020 "Statistics 
 Same as uHunt Comparer, you can use these operators: union `+`, subtraction `-`, intersection `&`, and brackets `(` `)` to force operator precedence.  
 To indicate a user of a OJ, you can use `[oj id]:[user name/id]`. See [Supported OJ] for detail.  
   
-For example: `python3 comparer.py tioj:domen111-tioj:visitorIKC`
+For example: `tioj:domen111-tioj:visitorIKC`
 
 Supported OJ
 -------------

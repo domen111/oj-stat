@@ -15,4 +15,9 @@ class cf_prob(tuple):
 		else:
 			return str(self[0])+self[1]
 	
-# by visitorIKC 15.08.18
+def get_url(prob):
+	cid, pid = prob
+	if cid < 100000:
+		return "http://codeforces.com/problemset/problem/"+str(cid)+"/"+pid
+	else:
+		return "http://codeforces.com/gym/"+str(cid)+"/problem/"+pid

@@ -18,3 +18,6 @@ def fetch_user(uid):
 		pid = int(re.search(r"problem\/view\/(\d+)\">",line).group(1))
 		if line.find('<span class="blue">') != -1:
 			yield pid
+
+def get_url(prob):
+	return "http://hoj.twbbs.org/judge/problem/view/"+str(prob)

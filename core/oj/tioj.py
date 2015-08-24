@@ -15,3 +15,6 @@ def fetch_user(uname):
 		pid = int(re.search(r"problems\/(\d+)\/submissions",line).group(1))
 		if line.find("text-success") != -1:
 			yield pid
+
+def get_url(prob):
+	return "http://tioj.ck.tp.edu.tw/problems/"+str(prob)

@@ -10,9 +10,14 @@ module `flask`
 
 Run Web Server
 -------------
-1. Make sure you've installed python3
-2. install required modules: `pip install requests` `pip install flask` 
+###On Linux (Ubuntu)
+1. Install pip for python3: `sudo apt-get install python3-pip`
+2. Install required modules: `sudo pip3 install flask` `sudo pip3 install requests`
 3. Run `web.py`: `python3 web.py`
+###On Windows
+1. Make sure you've installed python3 and pip
+2. Install required modules: `pip install requests` `pip install flask` 
+3. Run `web.py`: `py web.py`
 
 Features
 -------------

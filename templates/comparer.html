@@ -20,7 +20,16 @@
 </div>
 
 <script type="text/javascript">
+$(document).ready(function(){
+	if(location.search != "") {
+		var expression = decodeURI(location.search.split("=")[1]);
+		$("#expression").val(expression);
+		load();
+	}
+});
 function load(){
+	window.history.replaceState("","",location.pathname+"?expr="+encodeURI($("#expression").val()));
+
 	$("#loading").show();
 	$("#result").hide();
 	$.getJSON( "comparer/"+encodeURI($("#expression").val()), function(data) {
@@ -39,6 +48,7 @@ function load(){
 		$("#result").html(html);
 	});
 }
+
 </script>
 
 {% include 'footer.html' %}

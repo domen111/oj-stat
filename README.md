@@ -10,10 +10,16 @@ module `flask`
 
 Run Web Server
 -------------
-###On Linux (Ubuntu)
+###On Linux (Ubuntu 14.04)
 1. Install pip for python3: `sudo apt-get install python3-pip`
 2. Install required modules: `sudo pip3 install flask` `sudo pip3 install requests`
 3. Run `web.py`: `python3 web.py`
+4. 
+###On Linux (CentOS 7)
+1. Install python3: `sudo yum install python3`
+2. Install pip for python3: `sudo yum install python3-pip`
+3. Install required modules: `sudo python3-pip install flask` `sudo python3-pip install requests`
+4. Run `web.py`: `python3 web.py`
 
 ###On Windows
 1. Make sure you've installed python3 and pip

@@ -1,4 +1,10 @@
 from core.oj import oj
+import hashlib
+import pickle
+import os
+from time import time
+
+_cache_dir = "core/board_cache/"
 
 # users_probs data structure:
 #   tuple(users, probs)
@@ -32,3 +38,24 @@ def fetch(users_probs):
 				status.append("NO")
 		result[user] = status
 	return result
+
+def _upmd5(user_probs): #user_probs md5
+	return hashlib.md5(pickle.dumps(user_probs)).hexdigest()
+
+def cache(user_probs, data, timeout): #timeout: minutes
+	user_probs = _upmd5(user_probs)
+	file_data = [data, time()+timeout*60]
+	f = open(_cache_dir+user_probs, "wb")
+	pickle.dump(file_data, f)
+
+def load_cache(user_probs):
+	user_probs = _upmd5(user_probs)
+	f = open(_cache_dir+user_probs, "rb")
+	return pickle.load(f)[0]
+
+def update():
+	for f in os.listdir(_cache_dir):
+		timeout = pickle.load(open(_cache_dir+f,"rb"))[1]
+		if time()>timeout:
+			os.remove(_cache_dir+f)
+

@@ -43,19 +43,31 @@ def _upmd5(user_probs): #user_probs md5
 	return hashlib.md5(pickle.dumps(user_probs)).hexdigest()
 
 def cache(user_probs, data, timeout): #timeout: minutes
-	user_probs = _upmd5(user_probs)
+	if type(user_probs) is not str:
+		user_probs = _upmd5(user_probs)
 	file_data = [data, time()+timeout*60]
 	f = open(_cache_dir+user_probs, "wb")
 	pickle.dump(file_data, f)
 
 def load_cache(user_probs):
-	user_probs = _upmd5(user_probs)
+	if type(user_probs) is not str:
+		user_probs = _upmd5(user_probs)
 	f = open(_cache_dir+user_probs, "rb")
 	return pickle.load(f)[0]
 
 def update():
 	for f in os.listdir(_cache_dir):
+		if f.startswith("."): continue
 		timeout = pickle.load(open(_cache_dir+f,"rb"))[1]
 		if time()>timeout:
 			os.remove(_cache_dir+f)
 
+def fetch_auto(user_probs, timeout, force_fetch=False):
+	update()
+	up_md5 = _upmd5(user_probs)
+	if force_fetch or not os.path.isfile(_cache_dir+up_md5):
+		data = fetch(user_probs)
+		cache(up_md5,data,timeout)
+	else:
+		data = load_cache(up_md5)
+	return data

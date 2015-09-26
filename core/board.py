@@ -1,5 +1,6 @@
 from core.oj import oj
 import hashlib
+import json
 import pickle
 import os
 from time import time
@@ -40,7 +41,7 @@ def fetch(users_probs):
 	return result
 
 def _upmd5(user_probs): #user_probs md5
-	return hashlib.md5(pickle.dumps(user_probs)).hexdigest()
+	return hashlib.md5(json.dumps(user_probs,sort_keys=True).encode('utf-8')).hexdigest()
 
 def cache(user_probs, data, timeout): #timeout: minutes
 	if type(user_probs) is not str:

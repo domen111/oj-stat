@@ -14,7 +14,7 @@ Run Web Server
 1. Install pip for python3: `sudo apt-get install python3-pip`
 2. Install required modules: `sudo pip3 install flask` `sudo pip3 install requests`
 3. Run `web.py`: `python3 web.py`
-4. 
+
 ###On Linux (CentOS 7)
 1. Install python3: `sudo yum install python3`
 2. Install pip for python3: `sudo yum install python3-pip`

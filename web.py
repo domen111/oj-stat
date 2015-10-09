@@ -27,7 +27,7 @@ def board_api():
 	users = json.loads(request.values.get("users"))
 	probs = json.loads(request.values.get("probs"))
 	timeout = int(request.values.get("timeout"))
-	force_fetch = request.values.get("force_fetch")
+	force_fetch = bool(request.values.get("force_fetch"))
 	return json.dumps(board.fetch_auto((users,probs),timeout,force_fetch))
 
 if __name__ == "__main__":

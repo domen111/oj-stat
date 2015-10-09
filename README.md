@@ -37,6 +37,57 @@ To indicate a user of a OJ, you can use `[oj id]:[user name/id]`. See [Supported
   
 For example: `tioj:domen111-tioj:visitorIKC`
 
+###Board
+Track users' statistics of specific online judge problems.  
+Currently it doesn't provide a web interface. You can use its API with Javascript, PHP, etc.  
+You can send the following data via http POST/GET to `/board/api`  
+<table>
+	<thead>
+		<tr><td>argument</td><td>description</td></tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>users</td>
+			<td>
+				JSON string
+				<pre lang="javascript">
+{
+	user1_name: {oj1: oj1_uid, ...},
+	user2_name: {oj1: oj1_uid, ...},
+	...
+}
+				</pre>
+			</td>
+		</tr>
+		<tr>
+			<td>probs</td>
+			<td>
+				JSON string
+				<pre lang="javascript">
+[
+	[prob1_judge, prob1_name],
+	[prob2_judge, prob2_name],
+	...
+]
+				</pre>
+			</td>
+		</tr>
+		<tr>
+			<td>timeout</td>
+			<td>
+				A interger. The numbers of minutes we should keep its result in cache.
+			</td>
+		</tr>
+		<tr>
+			<td>force_fetch</td>
+			<td>
+				Non-essential<br>
+				A boolean. If it is not specified, it's false by default.
+			</td>
+		</tr>
+	<tbody>
+</table>
+
 Supported OJ
 -------------
 | OJ id | OJ full name            | Link                        | User name/id                       |

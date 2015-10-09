@@ -20,3 +20,11 @@ def get_url(prob):
 		return oj_class[judge].get_url(pid)
 	else:
 		return None
+
+def decode_probname(judge,prob):
+	if hasattr(oj_class[judge], "decode_probname"):
+		return oj_class[judge].decode_probname(prob)
+	elif prob.isdigit():
+		return int(prob)
+	else:
+		return prob

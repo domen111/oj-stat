@@ -1,5 +1,6 @@
 import requests
 import json
+import re
 
 def fetch_user(uname):
 	html = requests.get("https://codeforces.com/api/user.status?from=1&handle="+uname).text
@@ -21,3 +22,7 @@ def get_url(prob):
 		return "http://codeforces.com/problemset/problem/"+str(cid)+"/"+pid
 	else:
 		return "http://codeforces.com/gym/"+str(cid)+"/problem/"+pid
+
+def decode_probname(prob):
+	regex_result = re.search(r"(\d+)([A-Z])",prob)
+	return (regex_result.group(1),regex_result.group(2))

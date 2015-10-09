@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from flask import Flask, render_template
 from core.comparer import compare
 from core.oj.oj import get_url
@@ -22,4 +23,4 @@ def comparer_api(expression):
 
 if __name__ == "__main__":
 	app.debug = True
-	app.run(host="0.0.0.0")
+	app.run(host="0.0.0.0",port=49808)
